@@ -27,14 +27,10 @@ else
   # 同步第三方软件仓库run/ipk
   echo "🔄 正在同步第三方软件仓库 Cloning run file repo..."
   git clone --depth=1 https://github.com/wukongdaily/store.git /tmp/store-run-repo
-  git clone --depth=1 https://github.com/nikkinikki-org/OpenWrt-nikki.git  /tmp/store-run-repo1
-  git clone --depth=1 https://github.com/sirpdboy/luci-app-poweroffdevice.git  /tmp/store-run-repo2
 
   # 拷贝 run/x86 下所有 run 文件和ipk文件 到 extra-packages 目录
   mkdir -p /home/build/immortalwrt/extra-packages
   cp -r /tmp/store-run-repo/run/x86/* /home/build/immortalwrt/extra-packages/
-  cp -r /tmp/store-run-repo1/run/x86/* /home/build/immortalwrt/extra-packages/
-  cp -r /tmp/store-run-repo2/run/x86/* /home/build/immortalwrt/extra-packages/  
 
   echo "✅ Run files copied to extra-packages:"
   ls -lh /home/build/immortalwrt/extra-packages/*.run
@@ -61,9 +57,7 @@ PACKAGES="$PACKAGES luci-i18n-ttyd-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-passwall-zh-cn"
 PACKAGES="$PACKAGES luci-app-openclash"
 PACKAGES="$PACKAGES luci-i18n-homeproxy-zh-cn"
-PACKAGES="$PACKAGES luci-app-nikki"
 PACKAGES="$PACKAGES luci-i18n-upnp-zh-cn"
-PACKAGES="$PACKAGES luci-i18n-poweroffdevice-zh-cn"
 #PACKAGES="$PACKAGES openssh-sftp-server"
 #PACKAGES="$PACKAGES luci-i18n-samba4-zh-cn"
 # 文件管理器
